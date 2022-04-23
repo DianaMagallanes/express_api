@@ -23,10 +23,18 @@ app.get('/v1/explorers/:id', (req,res) =>{
     res.status(200).json(explorer)
 })
 
-app.post('v1/explorers',(req,res) =>{    
+app.post('/v1/explorers',(req,res) =>{    
     console.log(`Api Explorers POST request ${new Date()}`)
     const requestBody = req.body //parametros de un usuario
     res.status(201).json({message:"Created"})
+})
+
+app.put('/v1/explorers/:id', (req,res) =>{
+    console.log(`Api Explorers PUT request ${new Date()}`)
+    console.log(`Update explorer with id ${req.params.id}`)
+    const requestBody = req.body //parametros de un usuario
+    res.status(200).json({message:"Updated!"})
+
 })
 
 //inicializando app
