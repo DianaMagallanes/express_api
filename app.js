@@ -1,4 +1,5 @@
 const express = require('express')
+const req = require('express/lib/request')
 
 const app = express()
 app.use(express.json()) //indicando que usare json
@@ -20,6 +21,12 @@ app.get('/v1/explorers/:id', (req,res) =>{
     console.log(`Getting explorer with id ${req.params.id}`)
     const explorer = {id:1, name:"Diana"}
     res.status(200).json(explorer)
+})
+
+app.post('v1/explorers',(req,res) =>{    
+    console.log(`Api Explorers POST request ${new Date()}`)
+    const requestBody = req.body //parametros de un usuario
+    res.status(201).json({message:"Created"})
 })
 
 //inicializando app
